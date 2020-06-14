@@ -7,8 +7,11 @@
 <script>
     
 fetch("https://ci.appveyor.com/api/projects/PunkUnicorn/the-return-of-tom-thumb/artifacts/The-Return-of-Tom-Thumb.html", {mode: 'no-cors'})
-    .then((response) => response.text())
-    .then((html) => {
+    .then((response) =>  {
+        console.log('response', response);
+    })          
+    .then((data) => {
+        console.log('data', data);
         var iframe = document.getElementById('foo'),
             iframedoc = iframe.contentDocument || iframe.contentWindow.document;
 
