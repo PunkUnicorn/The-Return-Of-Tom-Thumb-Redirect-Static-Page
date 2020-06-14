@@ -6,7 +6,9 @@
 </iframe>
 <script>
     
-    fetch("https://ci.appveyor.com/api/projects/PunkUnicorn/the-return-of-tom-thumb/artifacts/The-Return-of-Tom-Thumb.html" /*, options */)
+    fetch("https://ci.appveyor.com/api/projects/PunkUnicorn/the-return-of-tom-thumb/artifacts/The-Return-of-Tom-Thumb.html", {
+            mode: 'no-cors', // no-cors, *cors, same-origin)
+        }
         .then((response) => response.text())
         .then((html) => {
             var iframe = document.getElementById('foo'),
