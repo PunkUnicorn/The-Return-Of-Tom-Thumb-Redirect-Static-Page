@@ -2,5 +2,22 @@
 <meta charset=utf-8>
 <title> Title-2 </title>
 <meta name=viewport content="width=device-width">
-<iframe src="https://ci.appveyor.com/api/projects/PunkUnicorn/the-return-of-tom-thumb/artifacts/The-Return-of-Tom-Thumb.html" style="position:absolute; top:0; left:0; width:100%; height:100%; border:0">
+<iframe id="foo"  style="position:absolute; top:0; left:0; width:100%; height:100%; border:0">
 </iframe>
+<script>
+function load_home (e) {
+    (e || window.event).preventDefault();
+
+    fetch("https://ci.appveyor.com/api/projects/PunkUnicorn/the-return-of-tom-thumb/artifacts/The-Return-of-Tom-Thumb.html" /*, options */)
+    .then((response) => response.text())
+    .then((html) => {
+        var iframe = document.getElementById('foo'),
+            iframedoc = iframe.contentDocument || iframe.contentWindow.document;
+      
+        iframedoc.body.innerHTML = html;
+    })
+    .catch((error) => {
+        console.warn(error);
+    });
+} 
+</script>
